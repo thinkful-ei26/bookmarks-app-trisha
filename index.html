@@ -24,11 +24,17 @@
   </header>
  <main>
    <section>
-      <button>+ New Bookmark</button>
+      <button>
+        <span class="button-label">
+          + New Bookmark
+        </span>
+      </button>
 
-      <label for='filter-control' id='filter-label'>Filter </label>
-      <!-- You can use multiple to select multiple filters, but could be an extended feature-->
-      <select class='placeholder' id='placeholder' name='filter' aria-label='Filter ratings by minimum rating'>
+      <label for='bookmark-ratings-filter'>
+        Filter 
+      </label>
+      <!-- You can use "multiple" on <select> to select multiple filters, but could be an extended feature-->
+      <select id='bookmark-ratings-filter' name='filter' aria-label='Filter ratings by minimum rating'>
         <option value='0'>All</option>
         <option value='5'>5 stars</option>
         <option value='4'>4 stars</option>
@@ -41,31 +47,34 @@
 
    <br>
    <br>
-  <!-- Create new bookmark form -->
+  <!-- CREATE new bookmark form -->
   <section>
-    <form>
-        <fieldset>
-          <legend>New Bookmark</legend>
-          <!--for on label should match id on input-->
-          <label for="bookmark-title">Title:</label> <input type="text" name="title" id="bookmark-title" placeholder="Google"><br>
-          
-          <label for="bookmark-url">URL:</label> <input type="text" name="url" id="bookmark-url" placeholder="https://www.google.com/"><br>
-          
-          <label for="bookmark-description">Description:</label>  <input type="text" name="description" id="bookmark-description">
-          
-          <label for="bookmark-ratings-filter">Filter:</label>
-          <select name='filter' aria-label='Assign bookmark rating' id="bookmark-ratings-filter">
-            <option value='5'>5 stars</option>
-            <option value='4'>4 stars</option>
-            <option value='3'>3 stars</option>
-            <option value='2'>2 stars</option>
-            <option value='2'>1 star</option>
-          </select>
-          <br>
-          <button>SAVE BOOKMARK</button>
-          <button>CANCEL</button>
-        </fieldset>
-      </form>
+    <form class="js-bookmark-add-form">
+      <fieldset>
+        <legend>New Bookmark</legend>
+        <!--for on label should match id on input-->
+        <label for="bookmark-title">Title:</label> <input type="text" name="title" id="bookmark-title" placeholder="Google"><br>
+        
+        <label for="bookmark-url">URL:</label> <input type="text" name="url" id="bookmark-url" placeholder="https://www.google.com/"><br>
+        
+        <label for="bookmark-description">Description:</label>
+        <input type="text" name="description" id="bookmark-description">
+        
+        <label for="bookmark-ratings-filter">Filter:</label>
+        <select name='filter' aria-label='Assign bookmark rating' id="bookmark-ratings-filter">
+          <option value='5'>5 stars</option>
+          <option value='4'>4 stars</option>
+          <option value='3'>3 stars</option>
+          <option value='2'>2 stars</option>
+          <option value='2'>1 star</option>
+        </select>
+        <br>
+
+        <button>SAVE BOOKMARK</button>
+        <button>CANCEL</button>
+
+      </fieldset>
+    </form>
   </section>
  
   <br>
@@ -73,23 +82,32 @@
   <!-- EDIT bookmark form -->
   <section>
     <form>
-        <fieldset>
-          <legend>Edit Bookmark</legend>
-          Title: <input type="text" placeholder="Google"><br>
-          URL: <input type="text" placeholder="https://www.google.com/"><br>
-          Description: <input type="text" class="js-description-value">
-          <select name='filter' aria-label='Assign bookmark rating'>
-            <option value='5'>5 stars</option>
-            <option value='4'>4 stars</option>
-            <option value='3'>3 stars</option>
-            <option value='2'>2 stars</option>
-            <option value='2'>1 star</option>
-          </select>
-          <br>
-          <button>SAVE BOOKMARK</button>
-          <button>CANCEL</button>
-        </fieldset>
-      </form>
+      <fieldset>
+        <legend>Edit Bookmark</legend>
+        <!--for on label should match id on input-->
+        <label for="bookmark-title">Title:</label> <input type="text" name="title" id="bookmark-title" placeholder="Google"><br>
+        
+        <label for="bookmark-url">URL:</label> <input type="text" name="url" id="bookmark-url" placeholder="https://www.google.com/"><br>
+        
+        <label for="bookmark-description">Description:</label>
+        <input type="text" name="description" class="js-description-value" id="bookmark-description">
+        
+        <label for="bookmark-ratings-filter">Filter:</label>
+        <select name='filter' aria-label='Assign bookmark rating' id="bookmark-ratings-filter">
+          <option value='5'>5 stars</option>
+          <option value='4'>4 stars</option>
+          <option value='3'>3 stars</option>
+          <option value='2'>2 stars</option>
+          <option value='2'>1 star</option>
+        </select>
+        <br>
+
+        <button>SAVE BOOKMARK</button>
+        <button>CANCEL</button>
+          
+      </fieldset>
+
+    </form>
   </section>
 
 
