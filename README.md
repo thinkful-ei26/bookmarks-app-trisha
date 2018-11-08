@@ -1,6 +1,14 @@
 # Bookmark App 
 **Bookmark It** is a website bookmark management application. It aims to be as a11y user friendly as possible. Using jQuery AJAX, it communicates with a heroku database and maintains a list of user submitted bookmarks. Please note that the database resets every 24 hours so that data and the bookmarks from the app will be deleted every day. 
 
+
+## Quicklinks
+Reference Repos: 
+* [shopping list with-api](https://github.com/thinkful-ei26/shopping-list-week-2/tree/with-api)
+* [thinkful-tube-solo](https://github.com/kronicle114/thinkful-tube-solo)
+* [babyQuizApp](https://github.com/kronicle114/babyAnimalQuizApp)
+* [thinkful dashboard](https://dashboard.thinkful.com/)
+
 ## Instructions
 1. Fork and clone this repo
 2. Navigate to the project folder and open `index.html` into your favorite browser. 
