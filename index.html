@@ -72,7 +72,7 @@
           <legend>Edit Bookmark</legend>
           Title: <input type="text" placeholder="Google"><br>
           URL: <input type="text" placeholder="https://www.google.com/"><br>
-          Description: <input type="text">
+          Description: <input type="text" class="js-description-value">
           <select name='filter' aria-label='Assign bookmark rating'>
             <option value='5'>5 stars</option>
             <option value='4'>4 stars</option>
@@ -90,27 +90,37 @@
 
   <br>
   <br>
-  <!-- bookmark list results CONDENSED-->
+  <!-- bookmark list results-->
   <section>
     <ul class='js-condensed-list'>
+      <!-- start bookmark item-->
       <li>
-        <p>Title</p>
-        <p>★★★★★</p>
-      </li>
-    </ul>
-  </section>
+        <span class="title">Title</span>
+        <br>
+        <span class="ratings">★★★★★</span>
 
-  <br>
-  <br>
-  <!-- bookmark list results DETAILED VIEW-->
-  <section>
-    <ul class='js-detailed-list'>
-      <li>
+        <!--start DETAILED list-->
+        <div class="js-detailed-list">
+          <button>
+              <span class="button-label">VISIT SITE</span>
+          </button>
+          <p>DESCRIPTION HERE</p>
+          <button class="js-toggle-edit">
+            <span class="button-label">EDIT/SAVE</span>
+          </button>
+          <!-- CANCEL button should only show up when js-toggle-edit is enabled-->
+          <button class="js-toggle-edit">
+            <span class="button-label">CANCEL</span>
+          </button>
+          <br>
+          <button>
+              <span class="button-label">DELETE</span>
+            </button>
+        </div>
+      </li>
+      <!-- end bookmark item-->
 
-      </li>
-      <li>
-        
-      </li>
+    
     </ul>
   </section>
   

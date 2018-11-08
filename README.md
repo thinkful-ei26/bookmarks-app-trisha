@@ -7,7 +7,11 @@ Reference Repos:
 * [shopping list with-api](https://github.com/thinkful-ei26/shopping-list-week-2/tree/with-api)
 * [thinkful-tube-solo](https://github.com/kronicle114/thinkful-tube-solo)
 * [babyQuizApp](https://github.com/kronicle114/babyAnimalQuizApp)
+* [Starting Shopping List repl.it](https://repl.it/@thinkful/Shopping-list-app-jQuery-1)
+
+Other:
 * [thinkful dashboard](https://dashboard.thinkful.com/)
+
 
 ## Instructions
 1. Fork and clone this repo
