@@ -7,37 +7,42 @@
 */
 
 // eslint-disable-next-line no-unused-vars
-const Store = (function(){
+const store = (function(){
 
-  const addBookmark = function(){
 
+  //need to add the bookmark to the store before it gets rendered
+  const addBookmark = function(bookmark) {
+    this.bookmarks.push(bookmark);
   };
 
 
-  const setError = function(){
-
-  };
-  
-  const findById = function(){
-
+  const setError = function(error) {
+    this.error = error;
   };
   
-  const setFilterRating = function(){
-
+  const findById = function(id) {
+    return this.bookmarks.find(bookmark => bookmark.id === id);
   };
   
-  const findAndDelete = function(){
+  const findAndDelete = function(id) {
+    this.bookmarks = this.bookmarks.filter(bookmark => bookmark.id !== id);
+  };
 
+  const findAndUpdate = function(id, newData) {
+    const bookmark = this.findById(id);
+    Object.assign(bookmark, newData);
+  };
+
+  //not sure about this probably fcked up. gotta get the bookmarks.rating === ratingFilter
+  const setFilterRating = function(rating){
+    this.rating = rating;
   };
   
-  const findAndUpdate = function(){
 
-  };
-  
   const toggleBookmarkFilter = function(){
-
+    this.hideFilteredBookmarks = !this.hideFilteredBookmarks;
   };
-  
+
   const toggleBookmarkExpanded = function(){
 
   };

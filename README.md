@@ -4,6 +4,7 @@
 
 ## Quicklinks
 Reference Repos: 
+* [heroku API developer doc](https://thinkful-list-api.herokuapp.com/endpoints/bookmarks)
 * [shopping list with-api](https://github.com/thinkful-ei26/shopping-list-week-2/tree/with-api)
 * [thinkful-tube-solo](https://github.com/kronicle114/thinkful-tube-solo)
 * [babyQuizApp](https://github.com/kronicle114/babyAnimalQuizApp)
