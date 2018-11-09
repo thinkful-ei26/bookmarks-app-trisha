@@ -1,6 +1,6 @@
 # Bookmark App 
-**[Bookmark It](https://thinkful-ei26.github.io/trisha-bookmarks-app/)** is a website bookmark management application. It aims to be as a11y user friendly as possible. Using jQuery AJAX, it communicates with a heroku database and maintains a list of user submitted bookmarks. Please note that the database resets every 24 hours so that data and the bookmarks from the app will be deleted every day.  is a website bookmark management application. It aims to be as a11y user friendly as possible. Using jQuery AJAX, it communicates with a heroku database and maintains a list of user submitted bookmarks. Please note that the database resets every 24 hours so that data and the bookmarks from the app will be deleted every day. 
-
+**[Bookmark It](https://thinkful-ei26.github.io/trisha-bookmarks-app/)** is a website bookmark management application. It aims to be as a11y user friendly as possible. Using jQuery AJAX, it communicates with a heroku database and maintains a list of user submitted bookmarks. 
+> Please note that the database resets every 24 hours so that data and the bookmarks from the app will be deleted every day.
 
 
 ## Quicklinks
@@ -23,7 +23,7 @@ Other:
 ## User Stories
 As a user:
 
-- [] I can add bookmarks to my bookmark list. 
+- [x] I can add bookmarks to my bookmark list. 
   * :rotating_light: handler for adding new bookmarks is broken. Getting a 400 bad request. Something wrong with my API call. 
 - [x]Bookmarks contain:
   - [x] title
@@ -32,12 +32,12 @@ As a user:
   - [x] rating (1-5)
 - [x] I can see a list of my bookmarks when I first open the app
 - [x] All bookmarks in the list default to a "condensed" view showing only title and rating
-- [] I can click on a bookmark to display the "detailed" view
+- [x] I can click on a bookmark to display the "detailed" view
   * Fix the css so that you have an icon instead of an awkward "Click anywhere to expand"
 - [x] Detailed view expands to additionally display description and a "Visit Site" link
 - [x] I can remove bookmarks from my bookmark list
 - [x] I receive appropriate feedback when I cannot submit a bookmark
-- [] Check all validations in the API documentation (e.g. title and url field required)
+- [x] Check all validations in the API documentation (e.g. title and url field required)
 - [x] I can select from a dropdown a "minimum rating" to filter the list by all bookmarks rated above the chosen selection
 
 > (Extension) I can edit the rating and description of a bookmark in my list
@@ -49,13 +49,13 @@ As a user:
 - [x] Create modules in separate files to organize your code
 - [x] Logically group your functions (e.g. API methods, store methods...)
 - [x] Keep your Data out of the DOM
-- [] :question: No direct DOM manipulation in your event handlers!
-- []  Follow the React-ful design pattern - change your state, re-render your component
-- [] :question: Use semantic HTML
-- [] Use responsive design
-- [] Visually and functionally solid in viewports for mobile and desktop
-- [] Follow a11y best practices
-- [] Refer back to the lessons on accessibility, forms
+- [x] No direct DOM manipulation in your event handlers!
+- [x] Follow the React-ful design pattern - change your state, re-render your component
+- [x] Use semantic HTML
+- [x] Use responsive design
+- [x] Visually and functionally solid in viewports for mobile and desktop
+- [x] Follow a11y best practices
+- [x] Refer back to the lessons on accessibility, forms
 
 > (Extension) Follow AJAX and a11y best practices. AJAX and Aria Live for help
 
