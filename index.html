@@ -15,22 +15,28 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="floating-grid.css" /> -->
+  <link rel="stylesheet" href="styles/grid.css" />
   <link rel="stylesheet" href="styles/index.css" />
 </head>
 
   <body>
-    <div class="container">
+    <header class="row" role="banner">
       <h1>Bookmark It</h1>
-      <div class="app-description">
+    </header>
+    
+    <main role="main">
+      <section class="row">
+        <div class="app-description">
         <p>This is a bookmark management app. Create a new bookmark to start.</p>
-      </div>
-
-      <button class = "new-bookmark js-new-bookmark">
-        <span class="button-label">
-          + New Bookmark
-        </span>
-      </button>
+        </div>
+        <div class="controls">
+          <button class = "new-bookmark js-new-bookmark">
+            <span class="button-label">
+              + New Bookmark
+            </span>
+          </button>
+        </div>
+      </section>
 
       <div class="filter-container">
         <label for='bookmark-ratings-filter'>
@@ -54,7 +60,11 @@
       <!-- bookmark list results start -->
       <ul class="bookmark-list js-bookmark-list"></ul>
 
-    </div>
+
+    </main>
+      
+
+    
 
   <!-- Script start -->
     <script

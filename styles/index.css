@@ -17,6 +17,13 @@ a:hover {
   position: relative;
 }
 
+body {
+  margin: 0 auto;
+  max-width: 355px;
+  padding:10px;
+  text-align: center;
+}
+
 .bookmark-element {
   border: 1px solid black;
 }
@@ -32,17 +39,9 @@ a:hover {
 };
 
 button:hover {
-  background-color: #ddd;
+  background-color: grey;
   color: black;
   cursor: pointer;
-}
-
-
-.container {
-  margin: 0 auto;
-  max-width: 355px;
-  padding:10px;
-  text-align: center;
 }
 
 
