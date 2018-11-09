@@ -16,43 +16,50 @@ const bookmarkList = (function(){
       rating = `${bookmark.rating} stars`;
     }
 
-    let description = '';
-    if(bookmark.desc === null){
-      description = 'No description';
-    } else {
-      description = `${bookmark.desc}`;
-    }
+    // //not working 
+    // let desc = '';
+    // if(bookmark.desc === null){
+    //   desc = 'No description';
+    // } else {
+    //   desc = `${bookmark.desc}`;
+    // }
 
+    // console.log('bookmark.des', `${bookmark.desc}`);
+
+    //console.log('this is bookmark', bookmark);
 
     //when the view is EXPANDED please return:
     if (bookmark.expanded){
       return `
       <li class="bookmark-element js-bookmark-element" data-bookmark-id="${bookmark.id}">
-        <div class="editing-form js-editing-form">
+        <button class="expand btn-expand" aria-label="Click toggle expand or hide details">
           <h2 class="bookmark-title js-bookmark-title">
-            ${bookmark.title}
+          ${bookmark.title}
           </h2>
-            <div>
-              <p>${rating}</p>
-              <p>${description}</p>
-              <span class="visit"><a href="${bookmark.url} class="visit-site" target="_blank">Visit</a><i class="fa fa-external-link" aria-hidden="true"></i></span>
-              <br>
-              <br>
-              <button class="delete-bookmark  js-delete-bookmark">Delete <i class="fa fa-trash"></i></button>
-            </div>
-        </div>
-        </li>`;
+        </button>
+        <p>${rating}</p>
+          <div class="expandedView">
+            <p>${bookmark.description}</p>
+            <button class="visit">
+              <a href="${bookmark.url} class="visit-site" target="_blank" arial-label="Click to open bookmark on a new tab">Visit </a>
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+            </button>
+            <br>
+            <br>
+            <button class="delete-bookmark  js-delete-bookmark">Delete <i class="fa fa-trash"></i></button>
+          </div>
+      </li>`;
     } else { //this will return CONDENSED view
       return `
       <li class="bookmark-element js-bookmark-element" data-bookmark-id="${bookmark.id}">
-        <div class="editing-form js-editing-form">
-          <h2 class="bookmark-title js-bookmark-title">
-            ${bookmark.title}
-          </h2>
+          <button class="expand">
+            <h2 class="bookmark-title js-bookmark-title">
+              ${bookmark.title}
+            </h2>
+          </button>
           <p>${rating}</p>
           <br>
           <button class="delete-bookmark js-delete-bookmark">Delete <i class="fa fa-trash"></i></button>
-        </div>
     </li>`;
     }
   };
@@ -63,7 +70,7 @@ const bookmarkList = (function(){
     console.log('handleNewBookmarkClicked fired');
 
     $('.js-new-bookmark').on('click', event => {
-      store.toggleAddingABookmark(event);
+      store.toggleNewBookmark(event);
 
       $('form').toggle();
       store.setError(null);
@@ -75,7 +82,7 @@ const bookmarkList = (function(){
   const handleCancelNewBookmark = function(){
     $('form').on('click', '.js-cancel-new-bookmark-button', event => {
 
-      store.toggleAddingABookmark();
+      store.toggleNewBookmark();
 
       $('form').toggle();
       store.setError(null);
@@ -86,6 +93,8 @@ const bookmarkList = (function(){
 
   const handleCreateBookmarkSubmit = function(){
     console.log('handleCreateBookmark');
+
+
     $('form').on('submit', event => {
 
       event.preventDefault();
@@ -105,7 +114,7 @@ const bookmarkList = (function(){
       api.createBookmark(newBookmark,
         bookmark => {
           bookmark.expanded = false;
-          store.toggleAddingABookmark();
+          store.toggleNewBookmark();
 
           // toggle <form> below to hide it
           $('form').toggle();
@@ -141,9 +150,9 @@ const bookmarkList = (function(){
           <input for="url" name="url" type="text" class="input-bookmark-url js-input-bookmark-url" placeholder="https://www.example.com/">
           <br>
           <br>
-          <label for="description">Description:</label>
+          <label for="desc">Description:</label>
           <br>
-          <textarea for="description" name="description" name="bookmark-desc" class="input-bookmark-desc js-input-bookmark-description" placeholder="This is a really awesome description"></textarea>
+          <textarea for="desc" name="bookmark-desc" class="input-bookmark-desc js-input-bookmark-desc" placeholder="This is a really awesome description"></textarea>
           <br>
           <br>
           <label for="rating">Rating:</label>
@@ -191,7 +200,7 @@ const bookmarkList = (function(){
 
   const handleToggleExpandClicked = function(){
 
-    $('.js-bookmark-list').on('click', event =>{
+    $('.js-bookmark-list').on('click', '.expand', event =>{
       const id = getIdFromBookmark(event.target);
       store.toggleExpandedForBookmark(id);
       render();
