@@ -24,13 +24,12 @@ const api = (function() {
 
   // POST request to DB for creating a new bookmark
   const createBookmark = function (bookmarkObj, onSuccess, onError) {
-    const newBookmark = JSON.stringify(bookmarkObj);
 
     $.ajax({
       url: `${BASE_URL}/bookmarks`,
       method: 'POST',
       contentType: 'application/json',
-      data: newBookmark,
+      data: JSON.stringify(bookmarkObj),
       success: onSuccess,
       error: onError
     });

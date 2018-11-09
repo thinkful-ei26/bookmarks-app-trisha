@@ -11,14 +11,12 @@ const store = (function(){
     this.bookmarks.push(bookmark);
   };
 
-  //
   const setError = function(error) {
     this.error = error;
   };
 
-  //
   const findBookmarkById = function(id){
-    return this.bookmarks.find(bookmark=> bookmark.id===id);
+    return this.bookmarks.find(bookmark => bookmark.id === id);
   };
 
   //
@@ -26,27 +24,16 @@ const store = (function(){
     this.bookmarks = this.bookmarks.filter(bookmark => bookmark.id !== id);
   };
 
-
-  //not sure about this probably fcked up. gotta get the bookmarks.rating === filterRating
-  // if this doesnt work then switch line 37
   const setFilterRating = function (filter_rating){
     this.filter = filter_rating;
   };
 
-  //
-  const toggleEditedForBookmark = function(id){
-    const bookmark = this.findBookmarkById(id);
-    bookmark.editing=!bookmark.editing;
-  };
-
-  //
   const toggleExpandedForBookmark = function(id){
     const bookmark = this.findBookmarkById(id);
     bookmark.expanded = !bookmark.expanded;
   };
 
-  //
-  const toggleAddingABookmark = function(){
+  const toggleNewBookmark = function(){
     store.adding = !store.adding;
   };
 
@@ -64,15 +51,13 @@ const store = (function(){
     error: null,
     adding: false,
 
-
     addBookmark,
     findAndDelete,
     toggleExpandedForBookmark,
     setError,
     setFilterRating,
-    toggleEditedForBookmark,
     findAndUpdate,
     findBookmarkById,
-    toggleAddingABookmark
+    toggleNewBookmark,
   };
 }());
