@@ -16,17 +16,17 @@ const bookmarkList = (function(){
       rating = `${bookmark.rating} stars`;
     }
 
-    // //not working 
-    // let desc = '';
-    // if(bookmark.desc === null){
-    //   desc = 'No description';
-    // } else {
-    //   desc = `${bookmark.desc}`;
-    // }
+    //not working 
+    let desc = '';
+    if(bookmark.desc === null){
+      desc = 'No description';
+    } else {
+      desc = `${bookmark.desc}`;
+    }
 
-    // console.log('bookmark.des', `${bookmark.desc}`);
+    // console.log('bookmark.des', desc);
 
-    //console.log('this is bookmark', bookmark);
+    // console.log('this is bookmark', bookmark);
 
     //when the view is EXPANDED please return:
     if (bookmark.expanded){
@@ -39,7 +39,7 @@ const bookmarkList = (function(){
         </button>
         <p>${rating}</p>
           <div class="expandedView">
-            <p>${bookmark.description}</p>
+            <p>${desc}</p>
             <button class="visit">
               <a href="${bookmark.url} class="visit-site" target="_blank" arial-label="Click to open bookmark on a new tab">Visit </a>
               <i class="fa fa-external-link" aria-hidden="true"></i>
@@ -152,7 +152,7 @@ const bookmarkList = (function(){
           <br>
           <label for="desc">Description:</label>
           <br>
-          <textarea for="desc" name="bookmark-desc" class="input-bookmark-desc js-input-bookmark-desc" placeholder="This is a really awesome description"></textarea>
+          <textarea for="desc" name="desc" class="input-bookmark-desc js-input-bookmark-desc" placeholder="This is a really awesome description"></textarea>
           <br>
           <br>
           <label for="rating">Rating:</label>
