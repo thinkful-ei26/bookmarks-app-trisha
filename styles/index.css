@@ -17,6 +17,10 @@ a:hover {
   position: relative;
 }
 
+.bookmark-element {
+  border: 1px solid black;
+}
+
 .bookmark-list {
   list-style:none;
   padding-left:0;

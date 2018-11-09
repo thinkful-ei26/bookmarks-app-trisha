@@ -28,41 +28,31 @@ const bookmarkList = (function(){
     if (bookmark.expanded){
       return `
       <li class="bookmark-element js-bookmark-element" data-bookmark-id="${bookmark.id}">
-        <form class="editing-form js-editing-form">
-          <fieldset>
-            <legend class="bookmark-title js-bookmark-title">
-              ${bookmark.title}
-            </legend>
-              <div>
-                <p>${rating}</p>
-                <p>${description}</p>
-                <br>
-                <a href="${bookmark.url} class="visit-site" target="_blank">Visit Site</a>
-                <br>
-                <br>
-                <!-- !!!!consider an icon for hide and expand !!!! -->
-                <p> Click anywhere to hide </p>
-                <br>
-                <button class="delete-bookmark  js-delete-bookmark">Delete</button>
-              </div>
-            </fieldset>
-          </form>
+        <div class="editing-form js-editing-form">
+          <h2 class="bookmark-title js-bookmark-title">
+            ${bookmark.title}
+          </h2>
+            <div>
+              <p>${rating}</p>
+              <p>${description}</p>
+              <span class="visit"><a href="${bookmark.url} class="visit-site" target="_blank">Visit</a><i class="fa fa-external-link" aria-hidden="true"></i></span>
+              <br>
+              <br>
+              <button class="delete-bookmark  js-delete-bookmark"><i class="fa fa-trash"></i></button>
+            </div>
+        </div>
         </li>`;
     } else { //this will return CONDENSED view
       return `
       <li class="bookmark-element js-bookmark-element" data-bookmark-id="${bookmark.id}">
-        <form class="editing-form js-editing-form">
-          <fieldset>
-            <legend class="bookmark-title js-bookmark-title">
-              ${bookmark.title}
-            </legend>
-            <p>${rating}</p>
-            <!-- !!!!consider an icon for hide and expand !!!! -->
-            <p>Click anywhere to expand</p>
-            <br>
-            <button class="delete-bookmark js-delete-bookmark">Delete</button>
-          </fieldset>
-        </form>
+        <div class="editing-form js-editing-form">
+          <h2 class="bookmark-title js-bookmark-title">
+            ${bookmark.title}
+          </h2>
+          <p>${rating}</p>
+          <br>
+          <button class="delete-bookmark js-delete-bookmark"><i class="fa fa-trash"></i></button>
+        </div>
     </li>`;
     }
   };
