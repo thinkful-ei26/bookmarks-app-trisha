@@ -5,7 +5,6 @@
 // eslint-disable-next-line no-unused-vars
 const store = (function(){
 
-
   //need to add the bookmark to the store before it gets rendered
   const addBookmark = function(bookmark) {
     this.bookmarks.push(bookmark);

@@ -6,6 +6,128 @@
 // eslint-disable-next-line no-unused-vars
 const bookmarkList = (function(){
 
+  /* ************ helper fns ************ */
+
+  const getIdFromBookmark = function(bookmark) {
+    return $(bookmark).closest('.js-bookmark-element').data('bookmark-id');
+  };
+
+  //Grabs the obj we need to send to the API for POST requests
+  //make sure to strigify it before sending to POST or PATCH
+  $.fn.extend({
+    serializeJson: function(){
+      const obj = {};
+      const data = new FormData(this[0]);
+      data.forEach((value,key)=>{
+        obj[key] = value;
+      });
+      return obj;
+    }
+  });
+
+  /* ************ handler fns ************ */
+
+  //my description not working when creating a new bookmark
+  
+  const handleNewBookmarkClicked = function(){
+    console.log('handleNewBookmarkClicked fired');
+
+    $('.js-new-bookmark').on('click', event => {
+      store.toggleNewBookmark(event);
+
+      $('form').toggle();
+      store.setError(null);
+
+      renderAddBookmarkForm();
+    });
+  };
+
+  const handleCancelNewBookmark = function(){
+    $('form').on('click', '.js-cancel-new-bookmark-button', event => {
+
+      store.toggleNewBookmark();
+
+      $('form').toggle();
+      store.setError(null);
+
+      renderAddBookmarkForm();
+    });
+  };
+
+  const handleCreateBookmarkSubmit = function(){
+    console.log('handleCreateBookmark');
+
+    $('form').on('submit', event => {
+      event.preventDefault();
+      
+      const newBookmark = $(event.target).serializeJson();
+      
+      //console.log('this is newBookmark before APIcall', newBookmark);
+      /* 
+      this is newBookmark before APIcall 
+      { title: "test", 
+        url: "http://www.something.com",
+        description: "test"
+      }
+      */
+
+      api.createBookmark(newBookmark,
+        bookmark => {
+          bookmark.expanded = false;
+          store.toggleNewBookmark();
+
+          // toggle <form> below to hide it
+          $('form').toggle();
+          store.addBookmark(bookmark);
+          store.setError(null);
+          renderAddBookmarkForm();
+          render();
+        },
+
+        error => {
+          store.setError(error.responseJSON.message);
+          showErrorMessage(store.error);
+        }
+      );
+      
+    });
+  };
+
+  const handleDeleteBookmarkClicked = function(){
+    $('.js-bookmark-list').on('click', '.js-delete-bookmark', event=>{
+
+      const id = getIdFromBookmark(event.target);
+
+      // api delete request
+      api.deleteBookmark(id, ()=> {
+        store.findAndDelete(id);
+        render();
+      });
+    });
+  };
+
+  const handleToggleExpandClicked = function(){
+
+    $('.js-bookmark-list').on('click', '.expand', event =>{
+      const id = getIdFromBookmark(event.target);
+      store.toggleExpandedForBookmark(id);
+      render();
+    });
+  };
+
+  const handleFilterRatingsClicked = function(){
+
+    $('.js-filter-rating-dropdown').change( event =>{
+
+      const filter_rating = $('.js-filter-rating-dropdown').val();
+      store.setFilterRating(filter_rating);
+      render();
+    });
+  };
+
+
+  /* ************ generate bookmark elements & strings fns ************ */
+
   const generateBookmarkElement = function(bookmark){
 
     //on CONDENSED view, set the ratings and description equal to:
@@ -25,7 +147,6 @@ const bookmarkList = (function(){
     }
 
     // console.log('bookmark.des', desc);
-
     // console.log('this is bookmark', bookmark);
 
     //when the view is EXPANDED please return:
@@ -62,75 +183,6 @@ const bookmarkList = (function(){
           <button class="delete-bookmark js-delete-bookmark">Delete <i class="fa fa-trash"></i></button>
     </li>`;
     }
-  };
-
-
-  //my description not working when creating a new bookmark
-  const handleNewBookmarkClicked = function(){
-    console.log('handleNewBookmarkClicked fired');
-
-    $('.js-new-bookmark').on('click', event => {
-      store.toggleNewBookmark(event);
-
-      $('form').toggle();
-      store.setError(null);
-
-      renderAddBookmarkForm();
-    });
-  };
-
-  const handleCancelNewBookmark = function(){
-    $('form').on('click', '.js-cancel-new-bookmark-button', event => {
-
-      store.toggleNewBookmark();
-
-      $('form').toggle();
-      store.setError(null);
-
-      renderAddBookmarkForm();
-    });
-  };
-
-  const handleCreateBookmarkSubmit = function(){
-    console.log('handleCreateBookmark');
-
-
-    $('form').on('submit', event => {
-
-      event.preventDefault();
-
-      const newBookmark = $(event.target).serializeJson();
-
-      console.log('this is newBookmark before APIcall', newBookmark);
-
-      /* 
-      this is newBookmark before APIcall 
-      { title: "test", 
-        url: "http://www.something.com",
-        description: "test"
-      }
-
-      */
-      api.createBookmark(newBookmark,
-        bookmark => {
-          bookmark.expanded = false;
-          store.toggleNewBookmark();
-
-          // toggle <form> below to hide it
-          $('form').toggle();
-          store.addBookmark(bookmark);
-          store.setError(null);
-          renderAddBookmarkForm();
-          render();
-        },
-
-        error => {
-          store.setError(error.responseJSON.message);
-          showErrorMessage(store.error);
-        }
-      );
-      
-    });
   };
 
   const generateAddBookmarkForm = function(){
@@ -180,57 +232,7 @@ const bookmarkList = (function(){
     return bookmarks.map( bookmark => generateBookmarkElement(bookmark)).join('');
   };
 
-
-  const getIdFromBookmark = function(bookmark) {
-    return $(bookmark).closest('.js-bookmark-element').data('bookmark-id');
-  };
-
-  const handleDeleteBookmarkClicked = function(){
-    $('.js-bookmark-list').on('click', '.js-delete-bookmark', event=>{
-
-      const id = getIdFromBookmark(event.target);
-
-      // api delete request
-      api.deleteBookmark(id, ()=> {
-        store.findAndDelete(id);
-        render();
-      });
-    });
-  };
-
-  const handleToggleExpandClicked = function(){
-
-    $('.js-bookmark-list').on('click', '.expand', event =>{
-      const id = getIdFromBookmark(event.target);
-      store.toggleExpandedForBookmark(id);
-      render();
-    });
-  };
-
-  const handleFilterRatingsClicked = function(){
-
-    $('.js-filter-rating-dropdown').change( event =>{
-
-      const filter_rating = $('.js-filter-rating-dropdown').val();
-      store.setFilterRating(filter_rating);
-      render();
-    });
-  };
-
-  //Grabs the obj we need to send to the API for POST requests
-  //make sure to strigify it before sending to POST or PATCH
-  $.fn.extend({
-    serializeJson: function(){
-      const obj = {};
-      const data = new FormData(this[0]);
-      data.forEach((value,key)=>{
-        obj[key] = value;
-      });
-      return obj;
-    }
-  });
-
-
+  /* ************ rendering fns ************ */
   const render = function(){
 
     let bookmarks = [...store.bookmarks];
@@ -253,6 +255,9 @@ const bookmarkList = (function(){
       $('.js-add-new-bookmark-form').html('');
     }
   };
+
+
+  /* ************ display error in a nice way fns ************ */
 
   const showErrorMessage = function (error){
     $('.js-error-message').html(error);
