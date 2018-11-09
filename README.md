@@ -21,37 +21,42 @@ Other:
 
 ## User Stories
 As a user:
-* I can add bookmarks to my bookmark list. Bookmarks contain:
-  - title
-  - url link
-  - description
-  - rating (1-5)
-* I can see a list of my bookmarks when I first open the app
-* All bookmarks in the list default to a "condensed" view showing only title and rating
-* I can click on a bookmark to display the "detailed" view
-* Detailed view expands to additionally display description and a "Visit Site" link
-* I can remove bookmarks from my bookmark list
-* I receive appropriate feedback when I cannot submit a bookmark
-* Check all validations in the API documentation (e.g. title and url field required)
-* I can select from a dropdown a "minimum rating" to filter the list by all bookmarks rated above the chosen selection
-* (Extension) I can edit the rating and description of a bookmark in my list
+
+- [] I can add bookmarks to my bookmark list. 
+  * :rotating_light: handler for adding new bookmarks is broken. Getting a 400 bad request. Something wrong with my API call. 
+- [x]Bookmarks contain:
+  - [x] title
+  - [x] url link
+  - [x] description
+  - [x] rating (1-5)
+- [x] I can see a list of my bookmarks when I first open the app
+- [x] All bookmarks in the list default to a "condensed" view showing only title and rating
+- [] I can click on a bookmark to display the "detailed" view
+  * Fix the css so that you have an icon instead of an awkward "Click anywhere to expand"
+- [x] Detailed view expands to additionally display description and a "Visit Site" link
+- [x] I can remove bookmarks from my bookmark list
+- [x] I receive appropriate feedback when I cannot submit a bookmark
+- [] Check all validations in the API documentation (e.g. title and url field required)
+- [x] I can select from a dropdown a "minimum rating" to filter the list by all bookmarks rated above the chosen selection
+
+> (Extension) I can edit the rating and description of a bookmark in my list
 
 ## Technical Requirements
-* Use jQuery for AJAX and DOM manipulation
-* Use namespacing to adhere to good architecture practices
-* Minimal global variables!
-* Create modules in separate files to organize your code
-* Logically group your functions (e.g. API methods, store methods...)
-* Keep your Data out of the DOM
-* No direct DOM manipulation in your event handlers!
-* Follow the React-ful design pattern - change your state, re-render your component
-* Use semantic HTML
-* Use responsive design
-* Visually and functionally solid in viewports for mobile and desktop
-* Follow a11y best practices
-* Refer back to the lessons on accessibility, forms
-* (Extension) Follow AJAX and a11y best practices
-* AJAX and Aria Live for help
+- [x] Use jQuery for AJAX and DOM manipulation
+- [x] Use namespacing to adhere to good architecture practices
+- [x] Minimal global variables!
+- [x] Create modules in separate files to organize your code
+- [x] Logically group your functions (e.g. API methods, store methods...)
+- [x] Keep your Data out of the DOM
+- [] :question: No direct DOM manipulation in your event handlers!
+- []  Follow the React-ful design pattern - change your state, re-render your component
+- [] :question: Use semantic HTML
+- [] Use responsive design
+- [] Visually and functionally solid in viewports for mobile and desktop
+- [] Follow a11y best practices
+- [] Refer back to the lessons on accessibility, forms
+
+> (Extension) Follow AJAX and a11y best practices. AJAX and Aria Live for help
 
 #Process
 - [x] Before coding anything, think about your user flow. What does the initial loaded page look like? What is each action a user can take and how does it affect the visual layout?
@@ -83,6 +88,45 @@ As a user:
         * :warning: Can't decide between the functionalities of edit/save
           * when edit/save button is toggled you should be able to edit or save AN EXISTING bookmark (so store already has info about this item and you just need to find the id of this item)
           * :warning: THIS IS DIFFERENT FROM THE `NEW BOOKMARK` form where you do not have the item info in store yet. 
-- [] **In Progress** Review the [API Documention](https://thinkful-list-api.herokuapp.com/endpoints/bookmarks). Perform some test requests with Postman.
+- [x] **In Progress** Review the [API Documention](https://thinkful-list-api.herokuapp.com/endpoints/bookmarks). 
 
-- [] Construct your modules and test every new function as you build it.
+- [x] Perform some test requests with Postman.
+  * Performed GET, POST, PATCHED, and DELETE tests
+
+```javascript
+//Example array when POST & GET is used
+
+[
+  {
+    "id": "cjo9usuvx00000k1e3mq5ocv0",
+    "title": "Google",
+    "url": "https://www.google.com/",
+    "desc": "I really like google",
+    "rating": 5
+  },
+  {
+    "id": "cjo9utlt400010k1ees9vk3g4",
+    "title": "Yahoo",
+    "url": "https://www.yahoo.com/",
+    "desc": "I don't like yahoo",
+    "rating": 2
+  },
+  {
+    "id": "cjo9uuzxp00030k1em1a5sxyd",
+    "title": "Bing",
+    "url": "https://www.bing.com/",
+    "desc": "I don't use bing",
+    "rating": 4
+  },
+  {
+    "id": "cjo9y615d00040k1esqna1q38",
+    "title": "GitHub",
+    "url": "https://www.github.com/",
+    "desc": null,
+    "rating": null
+  }
+]
+
+```
+
+- [x] Construct your modules and test every new function as you build it.

@@ -1,10 +1,6 @@
 'use strict';
 
-/*
-1. write pseudocode based on user stories
-2. figure out what parameters goes into the functions
-3. write the functions
-*/
+/*eslint-env jquery*/
 
 // eslint-disable-next-line no-unused-vars
 const store = (function(){
@@ -15,52 +11,68 @@ const store = (function(){
     this.bookmarks.push(bookmark);
   };
 
-
+  //
   const setError = function(error) {
     this.error = error;
   };
-  
-  const findById = function(id) {
-    return this.bookmarks.find(bookmark => bookmark.id === id);
+
+  //
+  const findBookmarkById = function(id){
+    return this.bookmarks.find(bookmark=> bookmark.id===id);
   };
-  
+
+  //
   const findAndDelete = function(id) {
     this.bookmarks = this.bookmarks.filter(bookmark => bookmark.id !== id);
   };
 
-  const findAndUpdate = function(id, newData) {
-    const bookmark = this.findById(id);
-    Object.assign(bookmark, newData);
+
+  //not sure about this probably fcked up. gotta get the bookmarks.rating === filterRating
+  // if this doesnt work then switch line 37
+  const setFilterRating = function (filter_rating){
+    this.filter = filter_rating;
   };
 
-  //not sure about this probably fcked up. gotta get the bookmarks.rating === ratingFilter
-  const setFilterRating = function(rating){
-    this.rating = rating;
-  };
-  
-
-  const toggleBookmarkFilter = function(){
-    this.hideFilteredBookmarks = !this.hideFilteredBookmarks;
+  //
+  const toggleEditedForBookmark = function(id){
+    const bookmark = this.findBookmarkById(id);
+    bookmark.editing=!bookmark.editing;
   };
 
-  const toggleBookmarkExpanded = function(){
+  //
+  const toggleExpandedForBookmark = function(id){
+    const bookmark = this.findBookmarkById(id);
+    bookmark.expanded = !bookmark.expanded;
+  };
 
+  //
+  const toggleAddingABookmark = function(){
+    store.adding = !store.adding;
+  };
+
+  //still needs some work
+  const findAndUpdate = function(id, newBookmark) {
+    const bookmark = this.findBookmarkById(id);
+    console.log('this is from findAndUpdate', bookmark);
+    Object.assign(bookmark, newBookmark);
   };
 
 
   return {
     bookmarks: [],
+    filter: null,
     error: null,
-    ratingFilter: 0,
+    adding: false,
+
 
     addBookmark,
-    setError,
-    findById, 
-    setFilterRating,
     findAndDelete,
+    toggleExpandedForBookmark,
+    setError,
+    setFilterRating,
+    toggleEditedForBookmark,
     findAndUpdate,
-    toggleBookmarkFilter,
-    toggleBookmarkExpanded,
-    //findAndEdit  <--- extended feature
+    findBookmarkById,
+    toggleAddingABookmark
   };
 }());

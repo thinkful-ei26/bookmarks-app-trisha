@@ -2,20 +2,75 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+/* this is currently optimized for mininum width of 375px (mobile) */
+
+a:hover {
+  background-color:white;
+  color:black;
 }
 
-h1 {
-  color: red;
-  border: 1px solid black;
+.add-new-bookmark-form {
+  background-color: white;
+  clear: both;
+  margin-top: 30px;
+  padding:10px;
+  position: relative;
 }
 
-section {
+.bookmark-list {
+  list-style:none;
+  padding-left:0;
+  padding-top:30px;
+}
+
+.bookmark-title {
+  font-weight: bold;
+};
+
+button:hover {
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
+}
+
+
+.container {
   margin: 0 auto;
-  padding: 5px;
+  max-width: 355px;
+  padding:10px;
+  text-align: center;
+}
+
+
+button, input, select, textarea {
+  margin-top:10px;
+  text-align: center;
+}
+
+.delete-bookmark:hover {
+  background-color: transparent;
+  color: red;
+}
+
+.edit-bookmark:hover {
+  background-color: transparent;
+  color: grey;
+}
+
+.error-message, .edit-error-message {
+  color:red;
+}
+
+.filter-label {
+  font-weight: bold;
+}
+
+.new-bookmark {
   border: 1px solid black;
+  float: center;
+  padding: 10px;
+}
+
+select:hover {
+  cursor: pointer;
 }
