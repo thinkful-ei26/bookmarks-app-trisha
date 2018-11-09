@@ -56,9 +56,16 @@ button, input, select, textarea {
   text-align: center;
 }
 
+.delete-bookmark {
+  cursor: pointer;
+  padding: 10px;
+}
+
 .delete-bookmark:hover {
   background-color: transparent;
   color: red;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .edit-bookmark:hover {
@@ -72,6 +79,7 @@ button, input, select, textarea {
 
 .expand {
   border: 1px black solid;
+  cursor: pointer;
   display: inline-block;
   width: 80%;
 }
@@ -79,6 +87,7 @@ button, input, select, textarea {
 .expand:hover {
   box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.36);
   color: black;
+  cursor: pointer;
   display: inline-block;
   -webkit-box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.36); 
   width: 90%;
@@ -91,8 +100,17 @@ button, input, select, textarea {
 
 .new-bookmark {
   border: 1px solid black;
+  cursor: pointer;
   float: center;
-  padding: 10px;
+  font: 1rem;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.new-bookmark:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
 
 select:hover {
