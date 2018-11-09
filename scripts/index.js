@@ -57,6 +57,7 @@ function main() {
       bookmark.expanded = false;
       bookmark.editing = false;
       store.addBookmark(bookmark);
+      store.bookmarkIndex();
     });
     bookmarkList.render();
   },

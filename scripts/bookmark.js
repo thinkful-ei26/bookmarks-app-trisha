@@ -23,7 +23,7 @@ const bookmarkList = (function(){
       description = `${bookmark.desc}`;
     }
 
-
+    //console.log('this is bookmark inside in generateBookmarkElement view', bookmark);
     //when the view is EXPANDED please return:
     if (bookmark.expanded){
       return `
@@ -45,8 +45,9 @@ const bookmarkList = (function(){
         </div>
         </li>`;
     } else { //this will return CONDENSED view
+      //console.log('this is bookmark inside condensed view', bookmark);
       return `
-      <li class="bookmark-element js-bookmark-element" data-bookmark-id="${bookmark.id}">
+      <li class="bookmark-element js-bookmark-element" data-bookmark-id="${bookmark.id} >
         <div class="editing-form js-editing-form">
           <h2 class="bookmark-title js-bookmark-title">
             ${bookmark.title}
@@ -60,6 +61,8 @@ const bookmarkList = (function(){
     }
   };
 
+  // tabIndex is not working...hmmm
+  store.bookmarkIndex();
 
   //the handler is broken REVISIT, able to grab it but won't render maybe need to do something with the event
   //could be that I'm toggling the wrong thing?
