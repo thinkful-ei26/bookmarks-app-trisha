@@ -34,9 +34,11 @@ const bookmarkList = (function(){
           </h2>
             <div>
               <p>${rating}</p>
-              <p>${description}</p>
-              <span class="visit"><a href="${bookmark.url} class="visit-site" target="_blank">Visit</a><i class="fa fa-external-link" aria-hidden="true"></i></span>
-              <br>
+              <p class="description">${description}</p>
+              <button class="visit">
+                <a href="${bookmark.url} class="visit-site" target="_blank">Visit </a>
+                <i class="fa fa-external-link" aria-hidden="true"></i>
+              </button>
               <br>
               <button class="delete-bookmark  js-delete-bookmark"><i class="fa fa-trash"></i></button>
             </div>
@@ -50,8 +52,9 @@ const bookmarkList = (function(){
             ${bookmark.title}
           </h2>
           <p>${rating}</p>
-          <br>
-          <button class="delete-bookmark js-delete-bookmark"><i class="fa fa-trash"></i></button>
+          <button class="delete-bookmark js-delete-bookmark">
+            <i class="fa fa-trash"></i>
+          </button>
         </div>
     </li>`;
     }
