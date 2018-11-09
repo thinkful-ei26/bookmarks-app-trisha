@@ -61,7 +61,7 @@ function main() {
     bookmarkList.render();
   },
   error => {
-    console.log('An error occured');
+    console.log('There was an error');
   });
 
 }

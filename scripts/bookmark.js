@@ -38,7 +38,7 @@ const bookmarkList = (function(){
               <span class="visit"><a href="${bookmark.url} class="visit-site" target="_blank">Visit</a><i class="fa fa-external-link" aria-hidden="true"></i></span>
               <br>
               <br>
-              <button class="delete-bookmark  js-delete-bookmark"><i class="fa fa-trash"></i></button>
+              <button class="delete-bookmark  js-delete-bookmark">Delete <i class="fa fa-trash"></i></button>
             </div>
         </div>
         </li>`;
@@ -51,15 +51,14 @@ const bookmarkList = (function(){
           </h2>
           <p>${rating}</p>
           <br>
-          <button class="delete-bookmark js-delete-bookmark"><i class="fa fa-trash"></i></button>
+          <button class="delete-bookmark js-delete-bookmark">Delete <i class="fa fa-trash"></i></button>
         </div>
     </li>`;
     }
   };
 
 
-  //the handler is broken REVISIT, able to grab it but won't render maybe need to do something with the event
-  //could be that I'm toggling the wrong thing?
+  //my description not working when creating a new bookmark
   const handleNewBookmarkClicked = function(){
     console.log('handleNewBookmarkClicked fired');
 
@@ -93,6 +92,16 @@ const bookmarkList = (function(){
 
       const newBookmark = $(event.target).serializeJson();
 
+      console.log('this is newBookmark before APIcall', newBookmark);
+
+      /* 
+      this is newBookmark before APIcall 
+      { title: "test", 
+        url: "http://www.something.com",
+        description: "test"
+      }
+
+      */
       api.createBookmark(newBookmark,
         bookmark => {
           bookmark.expanded = false;
@@ -111,6 +120,7 @@ const bookmarkList = (function(){
           showErrorMessage(store.error);
         }
       );
+      
     });
   };
 
@@ -190,7 +200,7 @@ const bookmarkList = (function(){
 
   const handleFilterRatingsClicked = function(){
 
-    $('.js-filter-rating-dropdown').change(event=>{
+    $('.js-filter-rating-dropdown').change( event =>{
 
       const filter_rating = $('.js-filter-rating-dropdown').val();
       store.setFilterRating(filter_rating);
