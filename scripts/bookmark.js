@@ -199,7 +199,7 @@ const bookmarkList = (function(){
           <br>
           <label for="url">url:</label>
           <br>
-          <input for="url" name="url" type="text" class="input-bookmark-url js-input-bookmark-url" aria-label="New bookmark url input" title"placeholder="https://www.example.com/">
+          <input for="url" name="url" type="text" class="input-bookmark-url js-input-bookmark-url" aria-label="New bookmark url input" placeholder="https://www.example.com/">
           <br>
           <br>
           <label for="desc">Description:</label>

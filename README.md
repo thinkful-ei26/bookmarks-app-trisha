@@ -1,5 +1,6 @@
 # Bookmark App 
-**[Bookmark It](https://thinkful-ei26.github.io/trisha-bookmarks-app/)** is a website bookmark management application. It aims to be as a11y user friendly as possible. Using jQuery AJAX, it communicates with a heroku database and maintains a list of user submitted bookmarks. Please note that the database resets every 24 hours so that data and the bookmarks from the app will be deleted every day. 
+**[Bookmark It](https://thinkful-ei26.github.io/trisha-bookmarks-app/)** is a website bookmark management application. It aims to be as a11y user friendly as possible. Using jQuery AJAX, it communicates with a heroku database and maintains a list of user submitted bookmarks. Please note that the database resets every 24 hours so that data and the bookmarks from the app will be deleted every day.  is a website bookmark management application. It aims to be as a11y user friendly as possible. Using jQuery AJAX, it communicates with a heroku database and maintains a list of user submitted bookmarks. Please note that the database resets every 24 hours so that data and the bookmarks from the app will be deleted every day. 
+
 
 
 ## Quicklinks
