@@ -58,20 +58,12 @@ const store = (function(){
   };
 
 
-  //this is probably not the best representation of finding the bookmark index
-  const bookmarkIndex = function(){
-    for (let i = 0; i < this.bookmarks.length; i++){
-      console.log('this is i', i);
-      //console.log('this.bookmarks.indexOf(i)', this.bookmarks.indexOf());
-    }
-  };
-
   return {
     bookmarks: [],
     filter: null,
     error: null,
     adding: false,
-    bookmarkIndex,
+
 
     addBookmark,
     findAndDelete,

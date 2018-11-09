@@ -23,7 +23,7 @@ const bookmarkList = (function(){
       description = `${bookmark.desc}`;
     }
 
-    //console.log('this is bookmark inside in generateBookmarkElement view', bookmark);
+
     //when the view is EXPANDED please return:
     if (bookmark.expanded){
       return `
@@ -34,35 +34,29 @@ const bookmarkList = (function(){
           </h2>
             <div>
               <p>${rating}</p>
-              <p class="description">${description}</p>
-              <button class="visit">
-                <a href="${bookmark.url} class="visit-site" target="_blank">Visit </a>
-                <i class="fa fa-external-link" aria-hidden="true"></i>
-              </button>
+              <p>${description}</p>
+              <span class="visit"><a href="${bookmark.url} class="visit-site" target="_blank">Visit</a><i class="fa fa-external-link" aria-hidden="true"></i></span>
               <br>
-              <button class="delete-bookmark  js-delete-bookmark" aria-label="delete"><i class="fa fa-trash"></i></button>
+              <br>
+              <button class="delete-bookmark  js-delete-bookmark"><i class="fa fa-trash"></i></button>
             </div>
         </div>
         </li>`;
     } else { //this will return CONDENSED view
-      //console.log('this is bookmark inside condensed view', bookmark);
       return `
-      <li class="bookmark-element js-bookmark-element" data-bookmark-id="${bookmark.id} >
+      <li class="bookmark-element js-bookmark-element" data-bookmark-id="${bookmark.id}">
         <div class="editing-form js-editing-form">
           <h2 class="bookmark-title js-bookmark-title">
             ${bookmark.title}
           </h2>
           <p>${rating}</p>
-          <button class="delete-bookmark js-delete-bookmark" aria-label="delete">
-            <i class="fa fa-trash"></i>
-          </button>
+          <br>
+          <button class="delete-bookmark js-delete-bookmark"><i class="fa fa-trash"></i></button>
         </div>
     </li>`;
     }
   };
 
-  // tabIndex is not working...hmmm
-  store.bookmarkIndex();
 
   //the handler is broken REVISIT, able to grab it but won't render maybe need to do something with the event
   //could be that I'm toggling the wrong thing?
@@ -129,22 +123,22 @@ const bookmarkList = (function(){
           <br>
           <label for="title"> Title:</label>
           <br>
-          <input id="title" name="title" type="text" class="input-bookmark-title js-input-bookmark-title" placeholder="Example">
+          <input for="title" name="title" type="text" class="input-bookmark-title js-input-bookmark-title" placeholder="Example">
           <br>
           <br>
           <label for="url">url:</label>
           <br>
-          <input id="url" name="url" type="text" class="input-bookmark-url js-input-bookmark-url" placeholder="https://www.example.com/">
+          <input for="url" name="url" type="text" class="input-bookmark-url js-input-bookmark-url" placeholder="https://www.example.com/">
           <br>
           <br>
           <label for="description">Description:</label>
           <br>
-          <textarea id="description" name="description" name="bookmark-desc" class="input-bookmark-desc js-input-bookmark-description" placeholder="This is a really awesome description"></textarea>
+          <textarea for="description" name="description" name="bookmark-desc" class="input-bookmark-desc js-input-bookmark-description" placeholder="This is a really awesome description"></textarea>
           <br>
           <br>
           <label for="rating">Rating:</label>
           <br>
-          <select id="rating" name="rating" class="input-bookmark-rating js-input-bookmark-rating">
+          <select for="rating" name="rating" class="input-bookmark-rating js-input-bookmark-rating">
             <option selected disabled>Select a rating</option>
             <option value="5">5 Stars</option>
             <option value="4">4 Stars</option>
