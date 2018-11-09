@@ -81,7 +81,7 @@ button, input, select, textarea {
   border: 1px black solid;
   cursor: pointer;
   display: inline-block;
-  width: 80%;
+  width: 90%;
 }
 
 .expand:hover {
@@ -90,7 +90,7 @@ button, input, select, textarea {
   cursor: pointer;
   display: inline-block;
   -webkit-box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.36); 
-  width: 90%;
+  width: 95%;
 }
 
 

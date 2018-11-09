@@ -194,22 +194,22 @@ const bookmarkList = (function(){
           <br>
           <label for="title"> Title:</label>
           <br>
-          <input for="title" name="title" type="text" class="input-bookmark-title js-input-bookmark-title" placeholder="Example">
+          <input for="title" name="title" type="text" class="input-bookmark-title js-input-bookmark-title" aria-label="New bookmark title input" placeholder="Example">
           <br>
           <br>
           <label for="url">url:</label>
           <br>
-          <input for="url" name="url" type="text" class="input-bookmark-url js-input-bookmark-url" placeholder="https://www.example.com/">
+          <input for="url" name="url" type="text" class="input-bookmark-url js-input-bookmark-url" aria-label="New bookmark url input" title"placeholder="https://www.example.com/">
           <br>
           <br>
           <label for="desc">Description:</label>
           <br>
-          <textarea for="desc" name="desc" class="input-bookmark-desc js-input-bookmark-desc" placeholder="This is a really awesome description"></textarea>
+          <textarea for="desc" name="desc" class="input-bookmark-desc js-input-bookmark-desc" aria-label="new bookmark input description" placeholder="This is a really awesome description"></textarea>
           <br>
           <br>
           <label for="rating">Rating:</label>
           <br>
-          <select for="rating" name="rating" class="input-bookmark-rating js-input-bookmark-rating">
+          <select for="rating" name="rating" class="input-bookmark-rating js-input-bookmark-rating" aria-label="new bookmark dropdown rating">
             <option selected disabled>Select a rating</option>
             <option value="5">5 Stars</option>
             <option value="4">4 Stars</option>
