@@ -1,6 +1,5 @@
 # Bookmark App 
-**[Bookmark It](https://thinkful-ei26.github.io/trisha-bookmarks-app/)** is a website bookmark management application. It aims to be as a11y user friendly as possible. Using jQuery AJAX, it communicates with a heroku database and maintains a list of user submitted bookmarks. Please note that the database resets every 24 hours so that data and the bookmarks from the app will be deleted every day.  is a website bookmark management application. It aims to be as a11y user friendly as possible. Using jQuery AJAX, it communicates with a heroku database and maintains a list of user submitted bookmarks. Please note that the database resets every 24 hours so that data and the bookmarks from the app will be deleted every day. 
-
+**[Bookmark It](https://thinkful-ei26.github.io/trisha-bookmarks-app/)** is a website bookmark management application. It aims to be as a11y user friendly as possible. Using jQuery AJAX, it communicates with a heroku database and maintains a list of user submitted bookmarks. Please note that the database resets every 24 hours so that data and the bookmarks from the app will be deleted every day.
 
 
 ## Quicklinks
@@ -49,13 +48,13 @@ As a user:
 - [x] Create modules in separate files to organize your code
 - [x] Logically group your functions (e.g. API methods, store methods...)
 - [x] Keep your Data out of the DOM
-- [] :question: No direct DOM manipulation in your event handlers!
-- []  Follow the React-ful design pattern - change your state, re-render your component
-- [] :question: Use semantic HTML
-- [] Use responsive design
-- [] Visually and functionally solid in viewports for mobile and desktop
-- [] Follow a11y best practices
-- [] Refer back to the lessons on accessibility, forms
+- [x] No direct DOM manipulation in your event handlers!
+- [x] Follow the React-ful design pattern - change your state, re-render your component
+- [x] Use semantic HTML
+- [x] Use responsive design
+- [x] Visually and functionally solid in viewports for mobile and desktop
+- [x] Follow a11y best practices
+- [x] Refer back to the lessons on accessibility, forms
 
 > (Extension) Follow AJAX and a11y best practices. AJAX and Aria Live for help
 
