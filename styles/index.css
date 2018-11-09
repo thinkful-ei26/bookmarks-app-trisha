@@ -4,8 +4,14 @@
 
 /* this is currently optimized for mininum width of 375px (mobile) */
 
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
 a:hover {
-  background-color:white;
+  background-color:transparent;
   color:black;
 }
 
@@ -44,9 +50,9 @@ button:hover {
   cursor: pointer;
 }
 
-
 button, input, select, textarea {
-  margin-top:10px;
+  background-color: transparent;
+  margin:10px;
   text-align: center;
 }
 
@@ -63,6 +69,21 @@ button, input, select, textarea {
 .error-message, .edit-error-message {
   color:red;
 }
+
+.expand {
+  border: 1px black solid;
+  display: inline-block;
+  width: 80%;
+}
+
+.expand:hover {
+  box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.36);
+  color: black;
+  display: inline-block;
+  -webkit-box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.36); 
+  width: 90%;
+}
+
 
 .filter-label {
   font-weight: bold;
