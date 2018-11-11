@@ -162,7 +162,7 @@ const bookmarkList = (function(){
           <div class="expandedView">
             <p>${desc}</p>
             <button class="visit">
-              <a href="${bookmark.url} class="visit-site" target="_blank" arial-label="Click to open bookmark on a new tab">Visit </a>
+              <a href="${bookmark.url}" class="visit-site" target="_blank" arial-label="Click to open bookmark on a new tab">Visit </a>
               <i class="fa fa-external-link" aria-hidden="true"></i>
             </button>
             <br>
