@@ -5,14 +5,15 @@
 /* this is currently optimized for mininum width of 375px (mobile) */
 
 a {
-  text-decoration: none;
   color: black;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  padding: 10px;
+  text-decoration: none;
 }
 
 a:hover {
   background-color:transparent;
-  color:black;
+  color: blue;
 }
 
 .add-new-bookmark-form {
@@ -32,6 +33,8 @@ body {
 
 .bookmark-element {
   border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
 }
 
 .bookmark-list {
@@ -46,12 +49,14 @@ body {
 
 button:hover {
   background-color: grey;
+  border-radius: 5px;
   color: black;
   cursor: pointer;
 }
 
 button, input, select, textarea {
   background-color: transparent;
+  border-radius: 5px;
   margin:10px;
   text-align: center;
 }
@@ -79,6 +84,7 @@ button, input, select, textarea {
 
 .expand {
   border: 1px black solid;
+  border-radius: 5px;
   cursor: pointer;
   display: inline-block;
   width: 90%;
@@ -100,6 +106,7 @@ button, input, select, textarea {
 
 .new-bookmark {
   border: 1px solid black;
+  border-radius: 5px;
   cursor: pointer;
   float: center;
   font: 1rem;

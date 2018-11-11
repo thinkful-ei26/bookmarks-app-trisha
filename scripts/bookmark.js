@@ -161,10 +161,7 @@ const bookmarkList = (function(){
         <p>${rating}</p>
           <div class="expandedView">
             <p>${desc}</p>
-            <button class="visit">
-              <a href="${bookmark.url}" class="visit-site" target="_blank" arial-label="Click to open bookmark on a new tab">Visit </a>
-              <i class="fa fa-external-link" aria-hidden="true"></i>
-            </button>
+              <a href="${bookmark.url}" class="visit" target="_blank" arial-label="Click to open bookmark on a new tab">Visit <i class="fa fa-external-link" aria-hidden="true"></i></a>
             <br>
             <br>
             <button class="delete-bookmark  js-delete-bookmark">Delete <i class="fa fa-trash"></i></button>
@@ -194,12 +191,12 @@ const bookmarkList = (function(){
           <br>
           <label for="title"> Title:</label>
           <br>
-          <input for="title" name="title" type="text" class="input-bookmark-title js-input-bookmark-title" aria-label="New bookmark title input" placeholder="Example">
+          <input for="title" name="title" type="text" class="input-bookmark-title js-input-bookmark-title" aria-label="New bookmark title input" placeholder="Example" required>
           <br>
           <br>
           <label for="url">url:</label>
           <br>
-          <input for="url" name="url" type="text" class="input-bookmark-url js-input-bookmark-url" aria-label="New bookmark url input" placeholder="https://www.example.com/">
+          <input for="url" name="url" type="text" class="input-bookmark-url js-input-bookmark-url" aria-label="New bookmark url input" placeholder="https://www.example.com/" required>
           <br>
           <br>
           <label for="desc">Description:</label>
